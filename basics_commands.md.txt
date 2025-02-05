@@ -1,0 +1,109 @@
+
+# Quick reference guide to common Git commands used for version control in Git repositories:
+
+### 1. Git Setup and Configuration
+
+- **`git config --global user.name "Your Name"`**:  
+  This command sets your name globally for all commits, so your identity is linked to every commit you make.
+
+- **`git config --global user.email "your.email@ex.com"`**:  
+  Sets your email globally for commits, ensuring your email is attached to the commit metadata.
+
+- **`git config --global core.editor "editor_nm"`**:  
+  Sets your default text editor for Git commands like commit messages (e.g., nano, vim, or code).
+
+- **`git config --list`**:  
+  Displays all the Git configurations (global and local), such as your user name, email, and editor.
+----------
+### 2. Initialize a Repository
+
+-   **`git init`**: Initializes a new Git repository in the current directory. It creates a .git folder that tracks your project files and version history. 
+---
+### 3. Cloning a Repository
+-   **`git clone <repository_url>`**: Copies an entire remote repository (including files, branches, and commit history) to your local system.
+   ---
+
+### 4. Basic Status and Information
+-   **`git status`**: Shows the status of your working directory and staging area, such as modified, untracked, or staged files.
+-   **`git diff`**: Displays the differences between your working directory and the staging area or between commits.
+-   **`git log`**: Lists the commit history, including details like author, date, and commit messages.
+   ---
+
+### 5. Staging and Committing
+-   **`git add <file>`**: Stages a specific file to include it in the next commit.
+-   **`git add .`**: Stages all modified or new files in the working directory.
+-   **`git commit -m "message"`**: Commits the staged changes with a descriptive message.
+-   **`git commit -am "message"`**: Stages and commits all tracked files in one step, skipping the need for git add.
+  ---
+
+### 6. Branching and Merging
+-   **`git branch`**: Lists all local branches in your repository.
+-   **`git branch <branch_name>`**: Creates a new branch.
+-   **`git checkout <branch_name>`** or **`git switch <branch_name>`**: Switches to an existing branch.
+-   **`git checkout -b <branch_name>`**: Creates and switches to a new branch in one command.
+-   **`git merge <branch_name>`**: Merges the specified branch into the current branch.
+-   **`git rebase <branch_name>`**: Reapplies commits from the current branch on top of the specified branch.
+---
+
+### 7. Remote Repositories
+-   **`git remote -v`**: Lists the remote repositories configured for the current project.
+-   **`git remote add <remote_name> <url>`**: Adds a new remote repository to your local Git configuration.
+-   **`git push <remote_name> <branch_name>`**: Pushes local commits to a remote branch.
+-   **`git pull <remote_name> <branch_name>`**: Fetches and merges changes from a remote branch into the current branch.
+-   **`git fetch <remote_name>`**: Downloads changes from a remote repository but does not merge them.
+   
+---
+
+### 8. Viewing and Reverting Changes
+
+-   **`git log --oneline`**: Displays the commit history in a compact, one-line format.
+-   **`git diff <commit_hash>`**: Shows the differences between a specific commit and the current state.
+-   **`git show <commit_hash>`**: Displays detailed information about a specific commit.
+-   **`git revert <commit_hash>`**: Creates a new commit that undoes the changes from the specified commit.
+-   **`git reset <commit_hash>`**: Resets the current branch to a specific commit. Options include:
+-   --soft: Keeps changes staged.
+-   --mixed: Keeps changes unstaged.
+-   --hard: Discards all changes.
+---
+### 9. Stashing Changes
+
+-   **`git stash`**: Temporarily saves uncommitted changes, allowing you to work on a clean state.
+-   **`git stash list`**: Shows all stashed changes.
+-   **`git stash apply`**: Applies the most recent stash without removing it from the stash list.
+-   **`git stash pop`**: Applies the most recent stash and removes it from the stash list.
+---
+### 10. Tags
+-   **`git tag`**: Lists all tags in the repository.
+-   **`git tag <tag_name>`**: Creates a new tag for marking a specific commit.
+-   **`git push <remote_name> <tag_name>`**: Pushes a tag to a remote repository.
+-   **`git tag -d <tag_name>`**: Deletes a local tag.
+    ----
+### 11. Deleting Branches
+
+-   **`git branch -d <branch_name>`**: Deletes a local branch if it has already been merged.
+-   **`git branch -D <branch_name>`**: Forcefully deletes a local branch, even if it hasn’t been merged.
+-   **`git push <remote_name> --delete <branch_name>`**: Deletes a branch from the remote repository.
+---
+
+### 12. Git Reflog
+
+-   **`git reflog`**: Displays the history of changes made to the branch, even those not visible in git log. Useful for recovering lost commits or branches.
+    
+---
+
+### 13. Configuring Aliases
+-   **`git config --global alias.co checkout`**: Creates an alias so you can use git co instead of git checkout.
+
+---
+### 14. Git Clean
+-   **`git clean -fd`**: Removes untracked files and directories from your working directory. Be cautious, as this cannot be undone.
+
+---
+###  To fetch all branches from a remote repository, use:
+**`git fetch --all`**
+Fetches updates for all branches from all remotes but does not merge them into local branches.
+
+### To list all local and remote branches, use:
+**`git branch -a`**
+Shows local branches (no prefix) and remote branches (prefixed with remotes/origin/).
+    
